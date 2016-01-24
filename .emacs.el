@@ -10,6 +10,8 @@
 (ido-mode t)
 
 (setq backup-directory-alist '(("." . "~/.emacs.d/backups")))
+(setq auto-save-file-name-transforms
+      `((".*" , "~/.emacs.d/autosave" t)))
 
 (require 'neotree)
 (global-set-key [f8] 'neotree-toggle)
