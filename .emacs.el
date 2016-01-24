@@ -37,7 +37,8 @@
 			     (local-set-key (kbd "C-c C-k") 'godoc)))
 (setq gofmt-command "goimports")
 (add-hook 'before-save-hook 'gofmt-before-save)
-
+(add-to-list 'load-path (concat (getenv "GOPATH") "/src/github.com/dougm/goflymake"))
+(require 'go-flymake)
 
 (require 'auto-complete)
 (require 'auto-complete-config)
