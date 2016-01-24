@@ -6,6 +6,10 @@
   (add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/")))
 (package-initialize)
 
+(when (memq window-system '(mac ns))
+  (exec-path-from-shell-initialize)
+    (exec-path-from-shell-copy-env "GOPATH"))
+
 (require 'ido)
 (ido-mode t)
 
@@ -22,10 +26,20 @@
 (require 'powerline)
 (powerline-default-theme)
 
+
+;;Golang-specific hooks
+(add-hook 'go-mode-hook '(lambda ()
+			   (local-set-key (kbd "C-c C-f") 'gofmt)))
+(add-hook 'before-save-hook 'gofmt-before-save)
+(add-hook 'go-mode-hook '(lambda ()
+			     (local-set-key (kbd "C-c C-k") 'godoc)))
+
 (require 'auto-complete)
 (require 'auto-complete-config)
 (require 'auto-complete-auctex)
+(require 'go-autocomplete)
 (ac-config-default)
+(setq ac-modes '(go-mode julia-mode latex-mode emacs-lisp-mode))
 
 (setq TeX-PDF-mode t)
 (setq TeX-auto-save t)
