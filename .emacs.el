@@ -13,6 +13,8 @@
 (require 'ido)
 (ido-mode t)
 
+(projectile-global-mode)
+
 (setq backup-directory-alist '(("." . "~/.emacs.d/backups")))
 (setq auto-save-file-name-transforms
       `((".*" , "~/.emacs.d/autosave" t)))
@@ -30,9 +32,12 @@
 ;;Golang-specific hooks
 (add-hook 'go-mode-hook '(lambda ()
 			   (local-set-key (kbd "C-c C-f") 'gofmt)))
-(add-hook 'before-save-hook 'gofmt-before-save)
+
 (add-hook 'go-mode-hook '(lambda ()
 			     (local-set-key (kbd "C-c C-k") 'godoc)))
+(setq gofmt-command "goimports")
+(add-hook 'before-save-hook 'gofmt-before-save)
+
 
 (require 'auto-complete)
 (require 'auto-complete-config)
