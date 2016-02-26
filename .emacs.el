@@ -6,10 +6,6 @@
   (add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/")))
 (package-initialize)
 
-(when (member "Hack" (font-family-list))
-  (add-to-list 'initial-frame-alist' (font . "Hack-9"))
-  (add-to-list 'default-frame-alist' (font . "Hack-9"))
-)
 
 (add-to-list 'default-frame-alist' (fullscreen . maximized))
 
@@ -34,11 +30,7 @@
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 (setq ring-bell-function 'ignore)
-;(toggle-frame-fullscreen)
-
-(require 'powerline)
-(powerline-default-theme)
-
+(toggle-frame-fullscreen)
 
 ;;Golang-specific hooks
 (add-hook 'go-mode-hook '(lambda ()
@@ -66,7 +58,20 @@
   (pdf-tools-install)
   (setq TeX-view-program-selection '((output-pdf "pdf-tools")))
   (setq TeX-view-program-list '(("pdf-tools" "TeX-pdf-tools-sync-view")))
-)
+  (when (member "Hack" (font-family-list))
+  (add-to-list 'initial-frame-alist' (font . "Hack-9"))
+  (add-to-list 'default-frame-alist' (font . "Hack-9"))
+  )
+  )
+
+(when (eq system-type 'darwin)
+  (when (member "Hack" (font-family-list))
+  (add-to-list 'initial-frame-alist' (font . "Hack-12"))
+  (add-to-list 'default-frame-alist' (font . "Hack-12"))
+  )
+  )
+
+
 
 (setq LaTeX-item-indent 0)
 (setq LaTeX-indent-level 2)
@@ -78,8 +83,8 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
-
- '(inhibit-startup-screen t))
+ '(inhibit-startup-screen t)
+ '(neo-theme (quote ascii)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
