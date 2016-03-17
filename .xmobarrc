@@ -1,0 +1,30 @@
+Config {
+       font = "xft:Hack:size=8:antialias=true"
+       , bgColor = "#2b303b"
+       , fgColor = "gray"
+       , position = TopW L 98
+       , commands = [
+		    Run Com "sh" ["/home/ivan-bocharov/.dotfiles/brightness.sh"] "brightness" 10
+		    , Run Com "sh" ["/home/ivan-bocharov/.dotfiles/volume.sh"] "volume" 10
+		    , Run Date "%a %b %_d %k:%M" "date" 10
+		    -- battery monitor
+                    , Run Battery        [ "--template" , "Batt: <acstatus>"
+                                         , "--Low"      , "10"        -- units: %
+                                         , "--High"     , "80"        -- units: %
+                                         , "--low"      , "#F25555"
+                                         , "--normal"   , "gray90"
+                                         , "--high"     , "#7CCC86"
+
+                                         , "--" -- battery specific options
+                                                   -- discharging status
+                                                   , "-o"   , "<left>% (<timeleft>)"
+                                                   -- AC "on" status
+                                                   , "-O"   , "<fc=#7CCC86>Charging</fc>"
+                                                   -- charged status
+                                                   , "-i"   , "<fc=#7CCC86>Charged</fc>"
+                                         ] 50
+		    ]
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template = " }{ %volume% | %brightness% | %battery% | <fc=#69DFFA>%date%</fc>"
+       }

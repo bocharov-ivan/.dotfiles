@@ -1,0 +1,11 @@
+#! /bin/sh
+
+sh /home/ivan-bocharov/.fehbg
+
+compton -cCGb --backend glx --vsync opengl
+xscreensaver &
+trayer --edge top --align right --SetDockType true --SetPartialStrut true --expand true --width 2 --height 27 --transparent true --alpha 0 --tint 0x2b303b &
+nm-applet &
+workrave &
+
+exec xmonad
