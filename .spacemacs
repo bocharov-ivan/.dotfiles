@@ -28,6 +28,7 @@ values."
      ;;colors
      emacs-lisp
      ess
+     go
      git
      latex
      markdown
@@ -45,7 +46,7 @@ values."
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '(base16-theme matlab-mode pdf-tools)
+   dotspacemacs-additional-packages '(base16-theme matlab-mode auctex-latexmk)
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '()
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
@@ -106,11 +107,11 @@ values."
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
-   dotspacemacs-default-font '("Hack"
-                               :size 12
+   dotspacemacs-default-font '("Inconsolata"
+                               :size 14
                                :weight normal
                                :width normal
-                               :powerline-scale 1.1)
+                               :powerline-scale 1.4)
    ;; The leader key
    dotspacemacs-leader-key "SPC"
    ;; The leader key accessible in `emacs state' and `insert state'
@@ -249,9 +250,10 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place you code here."
-  (pdf-tools-install)
+
   (setq TeX-view-program-selection '((output-pdf "pdf-tools")))
-  (setq TeX-view-program-list '(("pdf-tools" "TeX-pdf-tools-sync-view")))
+  (setq TeX-view-program-list '(("pdf-tools" "/Applications/Skim.app/Contents/SharedSupport/displayline -g %n %o %b")))
+
   (let ((bg (face-attribute 'default :background)))
     (custom-set-faces
      `(company-tooltip ((t (:inherit default :background ,(color-lighten-name bg 2)))))
@@ -271,7 +273,7 @@ you should place you code here."
    (quote
     ("50e7f9d112e821e42bd2b8410d50de966c35c7434dec12ddea99cb05dd368dd8" default)))
  '(neo-theme (quote nerd))
- '(ns-use-srgb-colorspace nil))
+ '(ns-use-srgb-colorspace nil)
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -280,7 +282,8 @@ you should place you code here."
  '(company-scrollbar-bg ((t (:background "#404858"))))
  '(company-scrollbar-fg ((t (:background "#353b49"))))
  '(company-tooltip ((t (:inherit default :background "#2f3440"))))
- '(company-tooltip-common ((t (:inherit company-tooltip :weight bold :underline nil))))
+ '(company-tooltip-common ((t (:inherit font-lock-constant-face))))
  '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil))))
  '(company-tooltip-selection ((t (:inherit font-lock-function-name-face)))))
+)
 )
