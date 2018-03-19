@@ -1,0 +1,54 @@
+{
+    "telemetry.enableTelemetry": false,
+    "telemetry.enableCrashReporter": false,
+    "julia.runlinter": false,
+    "julia.executablePath": "/Applications/Julia-0.6.app/Contents/Resources/julia/bin/julia",
+    "editor.fontFamily": "Hack, Inconsolata, Source Code Pro, Menlo, Monaco, 'Courier New', monospace",
+    "editor.fontSize": 16,
+    "editor.wordWrap": "bounded",
+    "editor.wordWrapColumn":80,
+    "editor.rulers": [
+        80
+    ],
+    "python.pythonPath": "python3",
+    "python.linting.pylintArgs": [
+        "--disable=R,C"
+    ],
+    "workbench.startupEditor": "newUntitledFile",
+    "vim.disableAnnoyingNeovimMessage": true,
+    "workbench.activityBar.visible": false,
+    "terminal.integrated.fontFamily": "Hack",
+    "terminal.integrated.fontSize": 16,
+    "materialTheme.cache.workbench.settings": {
+        "themeColours": "Default",
+        "accent": "Cyan",
+        "accentPrevious": "Breaking Bad"
+    },
+    "workbench.colorCustomizations": {
+        "activityBarBadge.background": "#00BCD4",
+        "list.activeSelectionForeground": "#00BCD4",
+        "list.inactiveSelectionForeground": "#00BCD4",
+        "list.highlightForeground": "#00BCD4",
+        "scrollbarSlider.activeBackground": "#00BCD450",
+        "editorSuggestWidget.highlightForeground": "#00BCD4",
+        "textLink.foreground": "#00BCD4",
+        "progressBar.background": "#00BCD4",
+        "pickerGroup.foreground": "#00BCD4",
+        "tab.activeBorder": "#00BCD4"
+    },
+    "workbench.panel.location": "right",
+    "window.zoomLevel": 1,
+    "vsicons.dontShowNewVersionMessage": true,
+    "workbench.colorTheme": "Ayu Mirage",
+    "[html]": {
+        "editor.tabSize": 2
+    },
+    "html.autoClosingTags": false,
+    "[latex]": {
+        "editor.minimap.enabled": true
+    },
+    "git.enableSmartCommit": true,
+    "git.confirmSync": false,
+    "workbench.statusBar.feedback.visible": false,
+    "latex-workshop.latex.autoBuild.onSave.enabled": false,
+}
